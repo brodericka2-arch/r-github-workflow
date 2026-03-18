@@ -1,0 +1,41 @@
+name: Data Workflow (Simulated)
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - stage
+      - main
+
+jobs:
+  data-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        run: echo "Pulling latest version of the repository"
+
+      - name: Identify environment
+        run: echo "Environment = ${{ github.base_ref }}"
+
+      - name: Install dependencies
+        run: echo "Installing R and required packages"
+
+      - name: Run analysis script
+        run: echo "Running analysis.R"
+
+      - name: Environment-specific behavior
+        run: |
+          if [ "${{ github.base_ref }}" = "dev" ]; then
+            echo "DEV: Running quick checks only"
+          elif [ "${{ github.base_ref }}" = "stage" ]; then
+            echo "STAGE: Running validation checks"
+          elif [ "${{ github.base_ref }}" = "main" ]; then
+            echo "PROD: Running full pipeline"
+          fi
+
+      - name: Save results
+        run: echo "Saving outputs / artifacts"
+
+      - name: Notify team
+        run: echo "Sending notification: pipeline complete"
