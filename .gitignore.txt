@@ -1,0 +1,10 @@
+# Utility Functions
+
+calculate_ratio <- function(x, y) {
+  return(x / y)
+}
+
+add_ratio_column <- function(df) {
+  df$ratio <- calculate_ratio(df$hp, df$wt)
+  return(df)
+}
