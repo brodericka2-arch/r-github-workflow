@@ -3,7 +3,10 @@
 # Load built-in dataset
 data <- mtcars
 
+print('hello I like cars')
+
 # View first rows
+
 print(head(data))
 
 # Basic summary
