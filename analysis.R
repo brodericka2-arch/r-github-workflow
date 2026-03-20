@@ -4,7 +4,7 @@
 data <- mtcars
 
 print('hello I like cars')
-
+print('lol')
 # View first rows
 
 print(head(data))
