@@ -18,3 +18,4 @@ cat("Average HP:", avg_hp, "\n")
 
 # TODO:
 # Add one new calculation below
+1+3
